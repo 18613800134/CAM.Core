@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AFE94D4F-D050-49EB-A42D-8CD83ABF9726}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CAM.Core</RootNamespace>
+    <AssemblyName>CAM.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CAM.Common.Data">
+      <HintPath>..\..\..\CAM.Common.Data\src\CAM.Common.Data\bin\Release\CAM.Common.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="CAM.Common.DataProtocol">
+      <HintPath>..\..\..\CAM.Common.DataProtocol\src\CAM.Common.DataProtocol\bin\Release\CAM.Common.DataProtocol.dll</HintPath>
+    </Reference>
+    <Reference Include="CAM.Common.Error">
+      <HintPath>..\..\..\CAM.Common.Error\src\CAM.Common.Error\bin\Release\CAM.Common.Error.dll</HintPath>
+    </Reference>
+    <Reference Include="CAM.Common.QueryMaker">
+      <HintPath>..\..\..\CAM.Common.QueryMaker\src\CAM.Common.QueryMaker\bin\Release\CAM.Common.QueryMaker.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\CAM-DEV-Solution\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\CAM-DEV-Solution\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\CAM-DEV-Solution\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Validation, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\CAM-DEV-Solution\packages\EnterpriseLibrary.Validation.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Validation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\Aggregate\BaseAggregate.cs" />
+    <Compile Include="Business\Aggregate\PredicateBuilder.cs" />
+    <Compile Include="Business\Aggregate\_BaseAggregateFilter.cs" />
+    <Compile Include="Business\Aggregate\_BaseAggregateForEntityModel.cs" />
+    <Compile Include="Business\Aggregate\_BaseAggregateForEntityPlugins.cs" />
+    <Compile Include="Business\Aggregate\_BaseAggregateForSQLCommand.cs" />
+    <Compile Include="Business\Aggregate\_BaseAggregateMixin.cs" />
+    <Compile Include="Business\Interface\IBaseInterfaceCommand.cs" />
+    <Compile Include="Business\Interface\IMixinInterface.cs" />
+    <Compile Include="Business\Rule\BaseRule.cs" />
+    <Compile Include="Business\Rule\TreeModelDeleteCheckRule.cs" />
+    <Compile Include="Model\Entity\BaseEntity.cs" />
+    <Compile Include="Model\Entity\BaseEntityNormal.cs" />
+    <Compile Include="Model\Entity\BaseEntityOrder.cs" />
+    <Compile Include="Model\Entity\BaseEntityTree.cs" />
+    <Compile Include="Model\Entity\DataLock.cs" />
+    <Compile Include="Model\Entity\EntityBuilder.cs" />
+    <Compile Include="Model\Entity\ExpirationState.cs" />
+    <Compile Include="Model\Entity\PropertySafeValueSetter\IPropertySafeValueSetter.cs" />
+    <Compile Include="Model\Entity\PropertySafeValueSetter\PropertySafeValueSetterFactory.cs" />
+    <Compile Include="Model\Entity\PropertySafeValueSetter\PropertySetter_DateTime.cs" />
+    <Compile Include="Model\Entity\PropertySafeValueSetter\PropertySetter_String.cs" />
+    <Compile Include="Model\Entity\_BaseEntityValidation.cs" />
+    <Compile Include="Model\Entity\_BasicEnityClone.cs" />
+    <Compile Include="Model\Filter\BaseFilter.cs" />
+    <Compile Include="Model\Validation\IValidation.cs" />
+    <Compile Include="Model\Validation\Validation.cs" />
+    <Compile Include="Model\Validation\ValidationByEnterpriseLibrary.cs" />
+    <Compile Include="Model\Validation\ValidationFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
